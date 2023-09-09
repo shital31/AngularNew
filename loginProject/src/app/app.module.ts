@@ -5,11 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import { ToDoFormComponent } from './to-do-form/to-do-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    ToDoListComponent,
+    ToDoFormComponent
   ],
   imports: [
     BrowserModule,
