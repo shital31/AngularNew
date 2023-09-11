@@ -52,13 +52,10 @@ export class ToDoListComponent implements OnInit {
     this.studentFormObj = data
     this.openForm()
     localStorage.setItem('studArrayNew', JSON.stringify(this.studArray))
-    // this.formFlag=false
-    // this.studentFormObj = {}
   }
 
   onUpdate(){
-    this.formFlag=false
-    this.studentFormObj = {}
+    this.formFlag = false
   }
 
   delete(data:any) {
@@ -71,8 +68,7 @@ export class ToDoListComponent implements OnInit {
   }
 
   parentWillTakeAction(data:any){
-    // this.informParent = this.studArray
-    console.log("this.informParent",  this.informParent,data);
+    console.log("this.informParent",data);
     this.studArray = data
     this.formFlag=false
   }
