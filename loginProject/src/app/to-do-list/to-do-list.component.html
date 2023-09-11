@@ -2,9 +2,9 @@
     <div class="col-4">
         <button type="button" class="btn btn-warning" (click)="openForm()">Add</button>
     </div>
-    <!-- <div>
-        <app-to-do-form  studObj="Message from parent to child" (informParent)="parentWillTakeAction($event)" ></app-to-do-form>
-    </div> -->
+    <div  *ngIf="formFlag">
+        <!-- <app-to-do-form [data]="parentData" (informParent)="parentWillTakeAction($event)" ></app-to-do-form> -->
+    </div>
     <table class="table  table-striped table-hover">
         <thead>
             <tr>
@@ -18,7 +18,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let std of studArray">
-                <th scope="row">1</th>
+                <th scope="row">{{std.studId}}</th>
                 <td>{{std.fullName}}</td>
                 <td>{{std.mobileNo}}</td>
                 <td>{{std.email}}</td>
@@ -32,7 +32,7 @@
         </tbody>
     </table>
 </div>
-<div class="col-md-8 offset-md-2 ">
+ <div class="col-md-8 offset-md-2 ">
     <div class="card p-2" *ngIf="formFlag">
         <h1 style="text-align: center;">Student Form</h1>
         <form>
@@ -51,7 +51,6 @@
                     <label for="email" class="form-label">Email address</label>
                     <input type="email" name="email" [(ngModel)]="studentFormObj.email" class="form-control" id="email"
                         aria-describedby="emailHelp">
-                    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="address" class="form-label">Address</label>
@@ -66,4 +65,4 @@
 
         </form>
     </div>
-</div>
+</div> 

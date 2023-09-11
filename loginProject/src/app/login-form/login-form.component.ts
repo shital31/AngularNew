@@ -33,7 +33,7 @@ export class LoginFormComponent implements OnInit {
   onLoginClick(){
     debugger
     let isUserExist = this.signInUserArray 
-    this.signInUserArray.find(m=> m.userName == this.loginUserObj.userName && m.password == this.loginUserObj.password)
+    this.signInUserArray.find(m => m.userName == this.loginUserObj.userName && m.password == this.loginUserObj.password)
     if(isUserExist != undefined){
       alert('User Logged in Successfully')
     } else{

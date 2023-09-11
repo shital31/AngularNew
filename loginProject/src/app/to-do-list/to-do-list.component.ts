@@ -7,7 +7,8 @@ import { Router, RouterModule } from '@angular/router';
   styleUrls: ['./to-do-list.component.css']
 })
 export class ToDoListComponent implements OnInit {
-  messageFromChild: string = '';
+  // messageFromChild: string = '';
+  parentData: string = '';
   openFormObj: any;
   studentList: any = [];
   studentFormObj: any = {
@@ -20,11 +21,13 @@ export class ToDoListComponent implements OnInit {
   }
   studArray: any = []
   formFlag: boolean = false;
+  informParent: any;
   constructor(
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    console.log("parentData",this.parentData);
     const localData = localStorage.getItem('studArrayNew')
     if (localData != null) {
       this.studArray = JSON.parse(localData)
@@ -49,11 +52,13 @@ export class ToDoListComponent implements OnInit {
     this.studentFormObj = data
     this.openForm()
     localStorage.setItem('studArrayNew', JSON.stringify(this.studArray))
+    // this.formFlag=false
     // this.studentFormObj = {}
   }
 
   onUpdate(){
-
+    this.formFlag=false
+    this.studentFormObj = {}
   }
 
   delete(data:any) {
@@ -63,6 +68,13 @@ export class ToDoListComponent implements OnInit {
       }
     }
 
+  }
+
+  parentWillTakeAction(data:any){
+    // this.informParent = this.studArray
+    console.log("this.informParent",  this.informParent,data);
+    this.studArray = data
+    this.formFlag=false
   }
 
 }

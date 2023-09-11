@@ -7,8 +7,9 @@ import { Component, OnInit ,  Input, Output, EventEmitter, } from '@angular/core
   styleUrls: ['./to-do-form.component.css']
 })
 export class ToDoFormComponent implements OnInit {
-  @Input() studObj = ''
+  @Input() data = ''
   @Output() informParent = new EventEmitter();
+  
   studentFormObj : any ={}
   studArray :any = []
   constructor() { }
@@ -17,11 +18,10 @@ export class ToDoFormComponent implements OnInit {
   }
 
   onSubmit(){
-    debugger
-    this.informParent.emit('The child triggered an event');
-    // this.studArray.push(this.studentFormObj)
-    // this.studentFormObj = {}
-    // console.log("studArray",this.studArray);
+    // debugger
+    this.studArray.push(this.studentFormObj)
+    this.informParent.emit(this.studArray);
+    console.log("studArray",this.studArray);
     // localStorage.setItem('studArrayNew',JSON.stringify(this.studArray))
     
   }
