@@ -44,15 +44,16 @@ export class AddProductComponent implements OnInit {
   }
 
   deleteProduct(id:number){
-    for(let i=0;i<=this.productArray[i].length;i++){
-      if(this.productArray[i] == id){
+    debugger
+    for(let i=0;i<=this.productArray.length;i++){
+      if(this.productArray[i].id == id){
         this.productArray.splice(i,1)
         localStorage.setItem('productArray',JSON.stringify(this.productArray))
         alert('Product Deleted Successfully')
       }
-      else{
-        alert('Data Not Found')
-      }
+      // else{
+      //   alert('Data Not Found')
+      // }
     }
     
 
