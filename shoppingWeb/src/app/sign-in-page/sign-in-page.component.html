@@ -1,0 +1,55 @@
+<div class="container mt-5">
+    <div class="col-md-6 offset-md-3">
+        <div class="col-md-6 offset-md-3"  *ngIf="!userExist">
+            <div class="card p-3">
+                <form  class="was-validated">
+                    <div class="row">
+                        <div class=" mb-3">
+                            <label class="form-label">User Name</label>
+                            <input type="text" name="name" [(ngModel)]="signInUserObj.name" class="form-control" id="name">
+                        </div>
+                        <div class=" mb-3">
+                            <label class="form-label">Phone No</label>
+                            <input type="text" name="phoneNo" [(ngModel)]="signInUserObj.phoneNo" class="form-control" id="phoneNo">
+                        </div>
+                        <div class=" mb-3">
+                            <label class="form-label">Email Id </label>
+                            <input type="email"  pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" required="" name="email" [(ngModel)]="signInUserObj.email" class="form-control" id="email">
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please Enter Valid EmailID</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password</label>
+                            <input type="password" name="password" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\S+$).{6,}$" required [(ngModel)]="signInUserObj.password" class="form-control" id="password">
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Password must Containat minimum 6 chars at least 1 number at least 1 Capital letter.</div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-12" style="text-align: center;">
+                        <button type="submit" class="btn btn-primary" (click)="signInUser()" >Sign In</button>   
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-12 mt-3" style="text-align: center;">
+                Alrady User? <span style="text-decoration: underline; color: #0d6efd; cursor: pointer;" (click)="openLoginForm()">LOGIN</span> 
+            </div>
+        </div>
+        <div class="col-md-6 offset-md-3" *ngIf="userExist">
+            <div class="card p-3">
+                <form>
+                    <div class=" mb-3">
+                        <label class="form-label">Email Id </label>
+                        <input type="text"  pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" name="email" [(ngModel)]="loginInUserObj.email" class="form-control" id="email">
+                    
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" [(ngModel)]="loginInUserObj.password" class="form-control" id="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary" (click)="signIn()" >Sign In</button>
+                </form>
+            </div>
+        </div>
+     </div>
+</div>
