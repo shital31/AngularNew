@@ -1,0 +1,65 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <div class="col-md-8 offset-md-2">
+        <h2 style="text-align: center;">Add Product</h2>
+        <form  class="was-validated">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Product Name</label>
+                    <input type="text" name="name" [(ngModel)]="productObj.name" class="form-control" id="name" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label class="form-label">Price</label>
+                    <input type="text" name="price" [(ngModel)]="productObj.price" class="form-control" id="price" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill Price in Number</div>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label class="form-label">Category</label>
+                    <input type="text" name="category" [(ngModel)]="productObj.category" class="form-control"
+                        id="category" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label class="form-label">Quantity</label>
+                    <input type="text" name="quantity" [(ngModel)]="productObj.quantity" class="form-control"
+                        id="category" required>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field in Number.</div>
+                </div>
+            </div>
+            <div class="col-md-12" style="text-align: center;">
+                <button type="submit" class="btn btn-primary" (click)="submitForm()" *ngIf="productObj.id == 0">Submit</button>
+                <button type="submit" class="btn btn-primary" (click)="updateForm()"  *ngIf="productObj.id !== 0">Update</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8 offset-md-2 mt-4">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">PRODUCT NAME</th>
+                    <th scope="col">PRICE</th>
+                    <th scope="col">CATEGORY</th>
+                    <th scope="col">ACTION</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let item of productArray">
+                <tr>
+                    <td>{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.category}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>
+                    <button type="button" class="btn btn-success btn-sm" (click)="editProduct(item)">Edit </button>
+                        <button type="button" class="btn btn-danger btn-sm ml-2" (click)="deleteProduct(item.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
