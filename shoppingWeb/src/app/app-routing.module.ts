@@ -4,6 +4,7 @@ import { SignInPageComponent } from './sign-in-page/sign-in-page.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ViewProductPageComponent } from './view-product-page/view-product-page.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { ProductCategoryComponent } from './product-category/product-category.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path:'productList',
     component:ProductListComponent
+  },
+  {
+    path:'productCategory',
+    component:ProductCategoryComponent
   },
   {
     path:'viewProduct',
